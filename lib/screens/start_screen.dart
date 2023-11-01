@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_calculator1/screens/home_page.dart';
 
 import '../widgets/app_button.dart';
 import 'new_employee.dart';
@@ -18,6 +19,12 @@ class _StartScreenState extends State<StartScreen> {
   void _addEmployee(){
     Navigator.of(context).push(MaterialPageRoute(builder: (ctx)=>AddEmployee()));
   }
+  void _fetchEmployees(){
+    Navigator.of(context).push(MaterialPageRoute(builder: (ctx)=>HomePage()));
+  }
+
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -37,6 +44,7 @@ class _StartScreenState extends State<StartScreen> {
                 operationColor: Colors.lightGreen,
                 description: 'Fetch Employees',
                 onPressed: ()  {
+                  _fetchEmployees();
 
                 },
               ),

@@ -62,7 +62,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         actions: [
-          IconButton(onPressed: getData, icon: Icon(Icons.add))
+          IconButton(onPressed: _addEmployee, icon: Icon(Icons.add))
         ],
         title: const Text('Employees'),
       ),

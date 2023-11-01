@@ -170,9 +170,21 @@ class _AddEmployeeState extends State<AddEmployee> {
                       ],
                     ),
                   SizedBox(height: 10,),
-                  TextButton(onPressed: (){}, child: Text('Save Data',style: TextStyle(
-                    fontSize: 18
-                  ),))
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      TextButton(onPressed: (){}, child: Text('Save Data',style: TextStyle(
+                          fontSize: 18
+                      ),)),
+                      TextButton(onPressed: (){
+                        Navigator.of(context).pop();
+                      }, child: Text('Go Back',style: TextStyle(
+                          fontSize: 18
+                      ),))
+
+                    ],
+                  )
+
 
 
                 ],
