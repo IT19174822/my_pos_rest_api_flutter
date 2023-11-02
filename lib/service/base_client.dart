@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 
-const String baseUrl = 'http://examination.24x7retail.com';
+const String baseUrl = 'http://examination.24x7retail.com?D(G+KbPeSgVkYp3s6v9y\$B&E)H@McQf';
 
 class BaseClient {
   var client = http.Client();

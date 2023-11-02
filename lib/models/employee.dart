@@ -37,8 +37,8 @@ class Employee{
     empAddressLine2: json["empAddressLine2"],
     empAddressLine3: json["empAddressLine3"],
     departmentCode: json["departmentCode"],
-    dateOfJoin: json["dateOfJoin"],
-    dateOfBirth: json["dateOfBirth"],
+    dateOfJoin: DateTime.parse(json["dateOfJoin"]),
+    dateOfBirth: DateTime.parse(json["dateOfBirth"]),
     basicSalary: json["basicSalary"],
     isActive: json["isActive"],
   );
