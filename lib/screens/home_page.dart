@@ -42,7 +42,13 @@ class _HomePageState extends State<HomePage> {
       void _addEmployee(){
     Navigator.of(context).push(MaterialPageRoute(builder: (ctx)=>AddEmployee()));
 }
-
+  void _deleteEmployee(String empNo) async{
+    var response = await RemoteService().delete('/api/v1.0/Employee/$empNo').catchError((err) {
+      print(err);
+    });
+    if (response == null) return;
+    debugPrint('successful:');
+  }
 
 
   @override
@@ -68,7 +74,7 @@ class _HomePageState extends State<HomePage> {
                     width: 50,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(12),
-                      color: Colors.grey[300],
+                      color: Colors.red,
                     ),
                   ),
                   const SizedBox(width: 16),
@@ -76,25 +82,37 @@ class _HomePageState extends State<HomePage> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          employees![index].empName,
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                          style: const TextStyle(
-                            fontSize: 24,
-                            fontWeight: FontWeight.bold,
+                        ListTile(
+                          title: Text(
+                            employees![index].empName,
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                            style: const TextStyle(
+                              fontSize: 24,
+                              fontWeight: FontWeight.bold,
+                            ),
+
                           ),
+                          subtitle: Text(
+                            employees![index].empNo ?? '',
+                            maxLines: 3,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                          onTap: (){
+                            _deleteEmployee(employees![index].empNo);
+
+                            print(employees![index].empNo);
+                          },
+
                         ),
-                        Text(
-                          employees![index].empNo ?? '',
-                          maxLines: 3,
-                          overflow: TextOverflow.ellipsis,
-                        ),
+
+
                       ],
                     ),
                   ),
                 ],
               ),
+
             );
           },
         ),

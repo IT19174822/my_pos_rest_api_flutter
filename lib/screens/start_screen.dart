@@ -27,57 +27,12 @@ class _StartScreenState extends State<StartScreen> {
   void _fetchEmployees(){
     Navigator.of(context).push(MaterialPageRoute(builder: (ctx)=>HomePage()));
   }
-  void _deleteEmployees() async{
-    var response = await RemoteService().delete('/api/v1.0/Employees').catchError((err) {});
-    if (response == null) return;
-    debugPrint('successful:');
-  }
 
 
 
 
-  Future<void> postDataToAPI() async {
-    final String apiUrl = "http://examination.24x7retail.com/api/v1.0/Employee"; // Replace with the API endpoint
 
-    // Define your data as a Map
-    Map<String, dynamic> data = {
-      "empNo": "okk",
-      "empName": "string",
-      "empAddressLine1": "oooo",
-      "empAddressLine2": "string",
-      "empAddressLine3": "string",
-      "departmentCode": "string",
-      "dateOfJoin": "2023-11-02T04:32:02.771Z",
-      "dateOfBirth": "2023-11-02T04:32:02.771Z",
-      "basicSalary": 10000,
-      "isActive": false
-    };
 
-    // Convert the data to JSON format
-    String jsonData = jsonEncode(data);
-
-    // Set the headers to specify JSON content
-    Map<String, String> headers = {
-      'Content-Type': 'application/json',
-      'apiToken':'?D(G+KbPeSgVkYp3s6v9y\$B&E)H@McQf'
-    };
-
-    // Make the POST request
-    final response = await http.post(
-      Uri.parse(apiUrl),
-      headers: headers,
-      body: jsonData,
-    );
-
-    // Check the response
-    if (response.statusCode == 200) {
-      print("Request was successful");
-      print(response.body);
-    } else {
-      print("Request failed with status code: ${response.statusCode}");
-      print(response.body);
-    }
-  }
 
 
   @override
@@ -123,6 +78,10 @@ class _StartScreenState extends State<StartScreen> {
                 operationColor: Colors.red,
                 description: 'Delete Employee',
                 onPressed: ()  {
+                 // _deleteEmployee();
+
+
+
 
                 },
               ),
