@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:flutter_app_calculator1/models/employee.dart';
 import 'package:flutter_app_calculator1/screens/home_page.dart';
+import 'package:flutter_app_calculator1/service/remode_service.dart';
 import 'package:http/http.dart' as http;
 import '../service/base_client.dart';
 import '../widgets/app_button.dart';
@@ -28,7 +28,7 @@ class _StartScreenState extends State<StartScreen> {
     Navigator.of(context).push(MaterialPageRoute(builder: (ctx)=>HomePage()));
   }
   void _deleteEmployees() async{
-    var response = await BaseClient().delete('/api/v1.0/Employees').catchError((err) {});
+    var response = await RemoteService().delete('/api/v1.0/Employees').catchError((err) {});
     if (response == null) return;
     debugPrint('successful:');
   }
@@ -107,7 +107,7 @@ class _StartScreenState extends State<StartScreen> {
                 operationColor: Colors.lightBlue,
                 description: 'Add Employee',
                 onPressed: () {
-                  postDataToAPI();
+                  _addEmployee();
 
                 },),
               AppButton(

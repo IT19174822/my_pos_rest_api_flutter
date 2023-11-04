@@ -39,18 +39,6 @@ class _HomePageState extends State<HomePage> {
     }
 
 
-
-  postData() async{
-    var response= await http.post(
-      Uri.parse("http://examination.24x7retail.com?D(G+KbPeSgVkYp3s6v9y\$B&E)H@McQf"),
-      body: {
-        "departmentCode": "OMGGGG",
-        "departmentName": "Human  Department",
-        "isActive": true.toString()
-        });
-       print(response.body);
-
-      }
       void _addEmployee(){
     Navigator.of(context).push(MaterialPageRoute(builder: (ctx)=>AddEmployee()));
 }
@@ -89,7 +77,7 @@ class _HomePageState extends State<HomePage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          employees![index].empNo,
+                          employees![index].empName,
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
                           style: const TextStyle(
@@ -98,7 +86,7 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                         Text(
-                          employees![index].empAddressLine1 ?? '',
+                          employees![index].empNo ?? '',
                           maxLines: 3,
                           overflow: TextOverflow.ellipsis,
                         ),

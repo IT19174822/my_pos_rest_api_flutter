@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:ffi';
 
 List<Employee> employeeFromJson(String str) => List<Employee>.from(json.decode(str).map((x) => Employee.fromJson(x)));
 
@@ -39,7 +40,7 @@ class Employee{
     departmentCode: json["departmentCode"],
     dateOfJoin: DateTime.parse(json["dateOfJoin"]),
     dateOfBirth: DateTime.parse(json["dateOfBirth"]),
-    basicSalary: json["basicSalary"],
+    basicSalary: json['basicSalary'],
     isActive: json["isActive"],
   );
 
@@ -50,8 +51,8 @@ class Employee{
     "empAddressLine2":empAddressLine2,
     "empAddressLine3":empAddressLine3,
     "departmentCode":departmentCode,
-    "dateOfJoin":dateOfJoin,
-    "dateOfBirth":dateOfBirth,
+    "dateOfJoin":dateOfJoin.toIso8601String(),
+    "dateOfBirth":dateOfBirth.toIso8601String(),
     "basicSalary":basicSalary,
     "isActive":isActive
   };
