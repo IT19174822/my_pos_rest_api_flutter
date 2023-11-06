@@ -45,13 +45,12 @@ class RemoteService {
 
 
   ///PUT Request
-  Future<dynamic> put(String api, dynamic object) async {
+  Future<dynamic> editEmployee(String api, dynamic object) async {
     var url = Uri.parse(baseUrl + api);
     var _payload = json.encode(object);
     var _headers = {
-      'Authorization': 'Bearer ?D(G+KbPeSgVkYp3s6v9y\$B&E)H@McQf=',
       'Content-Type': 'application/json',
-      'api_key': '?D(G+KbPeSgVkYp3s6v9y\$B&E)H@McQf',
+      'apiToken': '?D(G+KbPeSgVkYp3s6v9y\$B&E)H@McQf',
     };
 
     var response = await client.put(url, body: _payload, headers: _headers);

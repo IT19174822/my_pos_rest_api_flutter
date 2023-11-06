@@ -29,7 +29,7 @@ class _AddEmployeeState extends State<AddEmployee> {
   var _departmentCode='';
   DateTime _dateOfJoin=DateTime.now();
   DateTime _dateOfBirth=DateTime.now();
-   var _basicSalary='';
+  var _basicSalary='';
   bool _isActive=false;
   var _isSending = false;
 
@@ -251,6 +251,7 @@ class _AddEmployeeState extends State<AddEmployee> {
                       children: [
                         Expanded(
                           child: TextFormField(
+
                             
                             decoration:
                             InputDecoration(
@@ -270,10 +271,12 @@ class _AddEmployeeState extends State<AddEmployee> {
                         SizedBox(width: 10,),
                         Expanded(
                           child: CheckboxListTile(
+
                             title: Text('is Active'),
                             activeColor: Colors.white,
                               tristate:true,
-                              value: _isActive, onChanged: (value){
+                              value: _isActive,
+                              onChanged: (bool? value){
                                 setState(() {
                                   _isActive=value!;
 

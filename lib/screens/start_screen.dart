@@ -70,6 +70,7 @@ class _StartScreenState extends State<StartScreen> {
                 operationColor: Colors.orangeAccent,
                 description: 'Edit Employee',
                 onPressed: ()  {
+                  Navigator.push(context,MaterialPageRoute(builder: (context)=>HomePage()));
 
                 },
               ),
