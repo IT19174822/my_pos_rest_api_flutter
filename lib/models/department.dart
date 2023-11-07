@@ -1,23 +1,29 @@
+import 'dart:convert';
 
+
+List<Department> departmentFromJson(String str) => List<Department>.from(json.decode(str).map((x) => Department.fromJson(x)));
+
+String departmentToJson(List<Department> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class Department {
-  String? departmentCode;
-  String? departmentName;
-  bool? isActive;
+  String  departmentCode;
+  String departmentName;
+  bool isActive;
 
-  Department({this.departmentCode, this.departmentName, this.isActive});
+  Department({ required this.departmentCode, required this.departmentName,required this.isActive});
 
-  Department.fromJson(Map<String, dynamic> json) {
-    departmentCode = json['departmentCode'];
-    departmentName = json['departmentName'];
-    isActive = json['isActive'];
-  }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['departmentCode'] = this.departmentCode;
-    data['departmentName'] = this.departmentName;
-    data['isActive'] = this.isActive;
-    return data;
-  }
+ factory Department.fromJson(Map<String, dynamic> json)=>Department(
+    departmentCode: json['departmentCode'],
+    departmentName:json['departmentName'],
+    isActive: json['isActive'],
+  );
+
+
+  Map<String, dynamic> toJson()=> {
+    'departmentCode' :departmentCode,
+    'departmentName' : departmentName,
+    'isActive' :isActive,
+
+};
 }

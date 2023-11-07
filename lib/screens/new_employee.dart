@@ -100,7 +100,6 @@ class _AddEmployeeState extends State<AddEmployee> {
             padding: EdgeInsets.symmetric(horizontal: 30,vertical: 100),
             child: Form(
               key: _formKey,
-
               child: Column(
                 children: [
                   TextFormField(
@@ -115,6 +114,7 @@ class _AddEmployeeState extends State<AddEmployee> {
                     onSaved: (value){
                       _empNo=value!;
                     },
+
 
                   ),
                   SizedBox(

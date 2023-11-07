@@ -71,12 +71,15 @@ class _HomePageState extends State<HomePage> {
               onDismissed: (direction){
                 setState(() {
                   _deleteEmployee(employees![index].empNo);
+                  Navigator.pop(context);
 
                 });
                 ScaffoldMessenger.of(context)
                     .showSnackBar(SnackBar(content: Text('Employee dismissed')));
               },
-              background: Container(color: Colors.red,),
+              background: Container(
+                child: Text('Employee Deleted'),
+                color: Colors.red,),
 
               child: Container(
                 padding: const EdgeInsets.all(16),
